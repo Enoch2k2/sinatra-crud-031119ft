@@ -1,0 +1,10 @@
+<ul>
+  <% @todos.each do |todo| %>
+    <li><a href="/todos/<%= todo.id %>"><%= todo.title%></a> - <%= todo.completed ? 'Complete' : 'Not Complete' %> <a href="/todos/<%= todo.id %>/edit">Edit</a>
+    <form method="post" action="/todos/<%= todo.id %>">
+      <input type="hidden" name="_method" value="delete">
+      <input type="submit" value="Delete">
+    </form>
+    </li>
+  <% end %>
+</ul>
